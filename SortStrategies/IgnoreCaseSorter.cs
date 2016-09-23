@@ -6,7 +6,10 @@ namespace Textor.SortStrategies
     {
         public string Sort(string text)
         {
-            throw new NotImplementedException();
+            var words = text.Split(new char[] { ' ' });
+
+            Array.Sort(words, StringComparer.InvariantCultureIgnoreCase);
+            return string.Join(" ", words);
         }
     }
 }

@@ -7,6 +7,9 @@ namespace Textor
     {
         public string Sort(string text, SortOption sortOption)
         {
+            if (text == null)
+                throw new ArgumentNullException("Input text is null");
+            
             ISortStrategy strategy;
             switch (sortOption)
             {
@@ -22,6 +25,7 @@ namespace Textor
 
         public TextStatistics Statistics(string text)
         {
+
             if (text == null)
             {
                 throw new ArgumentNullException("composite");

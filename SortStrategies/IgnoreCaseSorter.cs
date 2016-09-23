@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Textor.SortStrategies
 {
@@ -6,10 +7,14 @@ namespace Textor.SortStrategies
     {
         public string Sort(string text)
         {
-            var words = text.Split(new char[] { ' ' });
+            var words = text.Split(Separator.Hyphens.ToArray());
 
-            Array.Sort(words, StringComparer.InvariantCultureIgnoreCase);
-            return string.Join(" ", words);
+            var trimmed = from word in words
+                          where !string.IsNullOrWhiteSpace(word)
+                          select word;
+
+            Array.Sort(trimmed.ToArray(), StringComparer.InvariantCultureIgnoreCase);
+            return string.Join(" ", trimmed);
         }
     }
 }

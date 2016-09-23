@@ -16,5 +16,15 @@ namespace UT_TextorService
             var sorted = sorter.Sort(paragraph);
             Assert.AreEqual(paragraph, sorted);
         }
+
+        [TestMethod]
+        public void ThreeSentencesWithDifferentcases()
+        {
+            var paragraph = "upperCaSe. UppERcASE .upperCaSE";
+            var sorter = new IgnoreCaseSorter();
+
+            var sorted = sorter.Sort(paragraph);
+            Assert.AreEqual("upperCaSe UppERcASE upperCaSE", sorted);
+        }
     }
 }

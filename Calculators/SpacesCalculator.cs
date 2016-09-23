@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Textor.Calculators
 {
     public class SpacesCalculator : ICalculator
     {
-        public uint Count()
+        public uint Count(string text)
         {
-            throw new NotImplementedException();
+            var matches = Regex.Matches(text.Trim(), @"\s+");
+            return (uint)matches.Count;
         }
     }
 }

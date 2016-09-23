@@ -50,6 +50,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Calculators\WhiteSpaceCalculatorTests.cs" />
+    <Compile Include="Calculators\WordsCalculatorTests.cs" />
+    <Compile Include="Calculators\HyphenCalculatorTests.cs" />
     <Compile Include="Sort\IgnoreCaseSortTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

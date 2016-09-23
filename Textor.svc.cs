@@ -1,4 +1,5 @@
 ﻿using System;
+using Textor.Calculators;
 using Textor.SortStrategies;
 
 namespace Textor
@@ -8,7 +9,7 @@ namespace Textor
         public string Sort(string text, SortOption sortOption)
         {
             if (text == null)
-                throw new ArgumentNullException("Input text is null");
+                throw new ArgumentNullException("Input text is null.");
             
             ISortStrategy strategy;
             switch (sortOption)
@@ -25,14 +26,21 @@ namespace Textor
 
         public TextStatistics Statistics(string text)
         {
-
+            
             if (text == null)
+                throw new ArgumentNullException("Input text is null.");
+
+            var hyphensCalculator = new HyphensCalculator();
+            var wordsCalculator = new WordsCalculator();
+            var spacesCalculator = new SpacesCalculator();
+
+
+            return new TextStatistics()
             {
-                throw new ArgumentNullException("composite");
-            }
-
-
-            return new TextStatistics();
+                HyphensCount = hyphensCalculator.Count(text),
+                SpacesCount = spacesCalculator.Count(text),
+                WordsCount = wordsCalculator.Count(text)
+            };
         }
     }
 }

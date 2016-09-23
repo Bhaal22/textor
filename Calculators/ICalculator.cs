@@ -2,6 +2,6 @@
 {
     public interface ICalculator
     {
-        uint Count();
+        uint Count(string text);
     }
 }

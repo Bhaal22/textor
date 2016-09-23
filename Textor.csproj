@@ -65,6 +65,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculators\HyphensCalculator.cs" />
+    <Compile Include="Calculators\ICalculator.cs" />
+    <Compile Include="Calculators\SpacesCalculator.cs" />
+    <Compile Include="Calculators\WordsCalculator.cs" />
+    <Compile Include="SortStrategies\IgnoreCaseSorter.cs" />
+    <Compile Include="SortStrategies\ISortStrategy.cs" />
     <Compile Include="Textor.svc.cs">
       <DependentUpon>Textor.svc</DependentUpon>
     </Compile>

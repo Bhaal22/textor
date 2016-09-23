@@ -1,4 +1,5 @@
 ﻿using System;
+using Textor.SortStrategies;
 
 namespace Textor
 {
@@ -6,7 +7,17 @@ namespace Textor
     {
         public string Sort(string text, SortOption sortOption)
         {
-            throw new NotImplementedException();
+            ISortStrategy strategy;
+            switch (sortOption)
+            {
+                case SortOption.IgnoreCase:
+                    strategy = new IgnoreCaseSorter();
+                    break;
+                default:
+                    throw new NotSupportedException($"Specified sort option {sortOption} not supported");
+            }
+
+            return strategy.Sort(text);
         }
 
         public TextStatistics Statistics(string text)

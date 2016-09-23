@@ -5,6 +5,7 @@ namespace Textor
 {
     public enum SortOption
     {
+        IgnoreCase
 
     }
 
